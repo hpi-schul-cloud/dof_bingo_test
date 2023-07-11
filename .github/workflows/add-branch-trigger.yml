@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'branch to if not existent'
+        description: 'branch to add if not existent'
         required: true
         type: string
 
@@ -12,12 +12,12 @@ jobs:
   job1:
     uses: hpi-schul-cloud/dof_bingo/.github/workflows/add-branch.yml@main
     with:
-      branch: "{{ inputs.branch }}"
+      branch: ${{ inputs.branch }}
     secrets:
-      bingo_token: "{{ secrets.BINGO_TOKEN }}"
+      bingo_token: ${{ secrets.BINGO_TOKEN }}
 
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-      - run: echo 'branch {{ inputs.branch }} resulted in ${{ needs.job1.outputs.deploy_to_instances }}'
+      - run: echo 'branch ${{ inputs.branch }} resulted in ${{ needs.job1.outputs.deploy_to_instances }}'

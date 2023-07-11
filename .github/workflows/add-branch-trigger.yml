@@ -10,7 +10,7 @@ on:
 
 jobs:
   job1:
-    uses: hpi-schul-cloud/dof_bingo/blob/main/.github/workflows/add-branch.yml@main
+    uses: hpi-schul-cloud/dof_bingo/.github/workflows/add-branch.yml@main
     with:
       branch: {{ inputs.branch }}
     secrets:

@@ -1,0 +1,17 @@
+name: Trigger Remove Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'branch to add if not existent'
+        required: true
+        type: string
+
+jobs:
+  job1:
+    uses: hpi-schul-cloud/dof_bingo/.github/workflows/remove-branch.yml@main
+    with:
+      branch: ${{ inputs.branch }}
+    secrets:
+      bingo_token: ${{ secrets.BINGO_TOKEN }}

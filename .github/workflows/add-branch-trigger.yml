@@ -14,7 +14,7 @@ jobs:
     with:
       branch: {{ inputs.branch }}
     secrets:
-      bingo_token: {{secrets.BINGO_TOKEN}}
+      bingo_token: {{ secrets.BINGO_TOKEN }}
 
   job2:
     runs-on: ubuntu-latest
